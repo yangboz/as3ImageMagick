@@ -156,7 +156,7 @@ package com.godpaper.as3.ImageMagick
 			this._nativeProcess.start(this._nativeProcessStartupInfo); 
 		}
 		//
-		public function stop(force:Boolean):void
+		public function exit(force:Boolean):void
 		{
 			if(this._nativeProcess.running)
 			{
@@ -191,6 +191,8 @@ package com.godpaper.as3.ImageMagick
 			LOG.info("outputCloseHandler:{0}",event.toString());
 			//dispatch event
 			this.dispatchEvent(new ImageMagickEvent(ImageMagickEvent.STANDARD_OUTPUT_CLOSE));
+			//exit process
+			this.exit(false);
 		}
 		//error handlers
 		//
@@ -210,6 +212,8 @@ package com.godpaper.as3.ImageMagick
 			LOG.info("outputCloseHandler:{0}",event.toString());
 			//dispatch event
 			this.dispatchEvent(new ImageMagickEvent(ImageMagickEvent.STANDARD_OUTPUT_ERROR));
+			//exit process
+			this.exit(false);
 		}
 		//input handlers
 		//
