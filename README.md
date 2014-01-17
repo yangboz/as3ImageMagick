@@ -7,6 +7,10 @@ Pure AS3(action script 3) language wrapper for ImageMagick under AIR3 SDK.
 
 http://htmlpreview.github.io/?https://github.com/yangboz/as3ImageMagick/blob/master/target/asdoc/index.html
 
+* Example
+
+https://github.com/yangboz/cloaked-batman
+
 
 References
 ==============
