@@ -11,6 +11,10 @@ http://htmlpreview.github.io/?https://github.com/yangboz/as3ImageMagick/blob/mas
 
 https://github.com/yangboz/cloaked-batman
 
+* Maven repository
+
+http://repository-godpaper.forge.cloudbees.com/snapshot/com/godpaper/as3/as3ImageMagick/
+
 
 References
 ==============
