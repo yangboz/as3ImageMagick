@@ -45,17 +45,17 @@ package com.godpaper.as3.ImageMagick
 		//--------------------------------------------------------------------------
 		//@required
 		/**
-		 * resize option String
+		 * @see http://help.adobe.com/en_US/ActionScript/3.0_ProgrammingAS3/WS5b3ccc516d4fbf351e63e3d118a9b90204-7f56.html
 		 */		
-		public static var resizeOpt:String = 'C:/Users/yangboz/git/cloaked-batman/src/Desert.jpg';
+		public static var resizeOpt:String = "";//resize option Strings
 		/**
 		 * File destination String
 		 */	
-		public static var desFile:String = 'C:/Users/yangboz/git/cloaked-batman/src/Desert50%.png';
+		public static var desFile:String = 'C:/Users/yangboz/git/cloaked-batman/src/Desert_output.png';
 		/**
 		 * File source String
 		 */		
-		public static var srcFile:String;
+		public static var srcFile:String = 'C:/Users/yangboz/git/cloaked-batman/src/Desert.jpg';
 		//@optional
 		//@see http://www.imagemagick.org/script/convert.php#options
 		

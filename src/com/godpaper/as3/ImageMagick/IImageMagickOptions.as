@@ -227,7 +227,7 @@ package com.godpaper.as3.ImageMagick
 //		-repage geometry	size and location of an image canvas
 //		-resample geometry	change the resolution of an image
 //		-resize geometry	resize the image
-		function with_resize(value:String):ImageMagickFactsBuilder;
+		function with_resize(args:String):ImageMagickFactsBuilder;
 //		-respect-parentheses	settings remain in effect until parenthesis boundary.
 //			-roll geometry	roll an image vertically or horizontally
 //		-rotate degrees	apply Paeth rotation to the image

@@ -260,9 +260,9 @@ package com.godpaper.as3.ImageMagick
 		//		-resample geometry	change the resolution of an image
 		//		-resize geometry	resize the image
 		//
-		public function with_resize(value:String):ImageMagickFactsBuilder
+		public function with_resize(args:String):ImageMagickFactsBuilder
 		{
-			ImageMagickParameters.resizeOpt = value;
+			ImageMagickParameters.resizeOpt = args;
 			return this;
 		}
 		//		-respect-parentheses	settings remain in effect until parenthesis boundary.
