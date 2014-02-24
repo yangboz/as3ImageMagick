@@ -43,22 +43,22 @@ package com.godpaper.as3.ImageMagick
 	
 	//event metdata declare
 	/** Dispatched when a standard ImageMagick input is clos-ed. */
-	[Event(name="ImageMagick_standard_input_close", type="com.godpaper.as3.ImageMagick.MQTTEvent")]
+	[Event(name="ImageMagick_standard_input_close", type="com.godpaper.as3.ImageMagick.ImageMagickEvent")]
 	
 	/** Dispatched when a standard ImageMagick process is input-ed. */
-	[Event(name="ImageMagick_input_progress", type="com.godpaper.as3.ImageMagick.MQTTEvent")]
+	[Event(name="ImageMagick_input_progress", type="com.godpaper.as3.ImageMagick.ImageMagickEvent")]
 	
 	/** Dispatched when a standard ImageMagick process is output-ed. */
-	[Event(name="ImageMagick_output_data", type="com.godpaper.as3.ImageMagick.MQTTEvent")]
+	[Event(name="ImageMagick_output_data", type="com.godpaper.as3.ImageMagick.ImageMagickEvent")]
 	
 	/** Dispatched when a standard ImageMagick output is close-ed. */
-	[Event(name="ImageMagick_standard_output_close", type="com.godpaper.as3.ImageMagick.MQTTEvent")]
+	[Event(name="ImageMagick_standard_output_close", type="com.godpaper.as3.ImageMagick.ImageMagickEvent")]
 	
 	/** Dispatched when a standard ImageMagick process is error-ed. */
-	[Event(name="ImageMagick_error_data", type="com.godpaper.as3.ImageMagick.MQTTEvent")]
+	[Event(name="ImageMagick_error_data", type="com.godpaper.as3.ImageMagick.ImageMagickEvent")]
 	
 	/** Dispatched when a standard ImageMagick output is close-ed. */
-	[Event(name="ImageMagick_standard_output_error", type="com.godpaper.as3.ImageMagick.MQTTEvent")]
+	[Event(name="ImageMagick_standard_output_error", type="com.godpaper.as3.ImageMagick.ImageMagickEvent")]
 	/**
 	 * AS3ImageMagick.as class. An AS3 wrapper with ImageMagick features.
 	 * @author yangboz

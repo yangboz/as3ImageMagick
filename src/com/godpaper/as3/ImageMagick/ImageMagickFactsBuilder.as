@@ -259,8 +259,14 @@ package com.godpaper.as3.ImageMagick
 		//		-repage geometry	size and location of an image canvas
 		//		-resample geometry	change the resolution of an image
 		//		-resize geometry	resize the image
-		//
-		public function with_resize(args:String):ImageMagickFactsBuilder
+		//Convert
+		/**
+		 * 
+		 * @param args @see http://www.imagemagick.org/script/convert.php#options
+		 * @return ImageMagickFactsBuilder
+		 * 
+		 */		
+		public function with_convert(args:String):ImageMagickFactsBuilder
 		{
 			ImageMagickParameters.resizeOpt = args;
 			return this;
@@ -328,6 +334,18 @@ package com.godpaper.as3.ImageMagick
 		//		-white-point point	chromaticity white point
 		//		-white-threshold value	force all pixels above the threshold into white
 		//		-write filename	write images to this file
+		//Montage
+		/**
+		 * 
+		 * @param args @see http://www.imagemagick.org/script/montage.php
+		 * @return ImageMagickFactsBuilder
+		 * 
+		 */		
+		public function with_montage(args:String):ImageMagickFactsBuilder
+		{
+			ImageMagickParameters.resizeOpt = args;
+			return this;
+		}
 		//--------------------------------------------------------------------------
 		//
 		// Protected methods
