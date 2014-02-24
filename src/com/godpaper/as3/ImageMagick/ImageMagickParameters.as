@@ -21,6 +21,10 @@
  */
 package com.godpaper.as3.ImageMagick
 {
+	import com.godpaper.as3.utils.LogUtil;
+	
+	import mx.logging.ILogger;
+
 	//--------------------------------------------------------------------------
 	//
 	// Imports
@@ -46,8 +50,9 @@ package com.godpaper.as3.ImageMagick
 		//@required
 		/**
 		 * @see http://help.adobe.com/en_US/ActionScript/3.0_ProgrammingAS3/WS5b3ccc516d4fbf351e63e3d118a9b90204-7f56.html
+		 * @see http://www.imagemagick.org/Usage/montage/
 		 */		
-		public static var resizeOpt:String = "";//resize option Strings
+		public static var commandOpt:String = "";//resize/montage command option Strings
 		/**
 		 * File destination String
 		 */	
@@ -62,7 +67,7 @@ package com.godpaper.as3.ImageMagick
 		//----------------------------------
 		// CONSTANTS
 		//----------------------------------
-		
+		private static const LOG:ILogger = LogUtil.getLogger(ImageMagickParameters);
 		//--------------------------------------------------------------------------
 		//
 		// Public properties
@@ -90,19 +95,22 @@ package com.godpaper.as3.ImageMagick
 		// Public methods
 		//
 		//--------------------------------------------------------------------------
-		static public function toArguments():Vector.<String>
+		static public function toArguments(exeType:String):Vector.<String>
 		{
+			var exeOptions:String = ":srcFilename,:commandOption,:destFilename"; // command (1)
+			//Command string processing
+			//Simple String replace
+			exeOptions = exeOptions.replace(':srcFilename', ImageMagickParameters.srcFile);
 			// command processing
-			var convertOptions:String = ':srcFilename,-resize,:resizeOption,:destFilename';        // command (1)
-			convertOptions = convertOptions.replace(':srcFilename', ImageMagickParameters.srcFile);
-			convertOptions = convertOptions.replace(':resizeOption', ImageMagickParameters.resizeOpt);
-			convertOptions = convertOptions.replace(':destFilename', ImageMagickParameters.desFile);
+			exeOptions = exeOptions.replace(':commandOption', ImageMagickParameters.commandOpt);
+			exeOptions = exeOptions.replace(':destFilename', ImageMagickParameters.desFile);
 			var processArgs:Vector.<String> = new Vector.<String>();
-			var parts:Array = convertOptions.split(',');
+			var parts:Array = exeOptions.split(',');
 			for (var i:int =0; i<parts.length; i++) {
 				processArgs.push(parts[i]);
 			}
 //			return new Vector.<String>();
+			LOG.info("Native Process Arguments:{0}",processArgs.toString());
 			return processArgs;
 		}
 		//--------------------------------------------------------------------------

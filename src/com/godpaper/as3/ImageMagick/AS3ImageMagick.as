@@ -78,10 +78,11 @@ package com.godpaper.as3.ImageMagick
 		// Variables
 		//
 		//--------------------------------------------------------------------------
-		private var _exe:String = "convert.exe";//others:identify,display,compose...
+		private var _exe:String = "convert.exe";//others:montage,identify,display,compose...
 		private var _nativeProcessStartupInfo:NativeProcessStartupInfo;
 		private var _file:File;
 		private var _nativeProcess:NativeProcess;
+		//
 		//----------------------------------
 		// CONSTANTS
 		//----------------------------------
@@ -130,7 +131,7 @@ package com.godpaper.as3.ImageMagick
 			this._nativeProcessStartupInfo.executable = this._file;
 			this._nativeProcessStartupInfo.workingDirectory = File.applicationDirectory;
 			//arguments assemble here.
-			this._nativeProcessStartupInfo.arguments = facts.toArguments(); 
+			this._nativeProcessStartupInfo.arguments = facts.toArguments(exe); 
 			//
 			this._nativeProcess = new NativeProcess();
 			//output handler
@@ -178,17 +179,17 @@ package com.godpaper.as3.ImageMagick
 		//
 		private function standardOutputDataHandler(event:ProgressEvent):void
 		{ 
-			LOG.info("dataHandler(event):{0}",event.toString());
+			LOG.info("standardOutputDataHandler(event):{0}",event.toString());
 			var bytes : IDataInput = this._nativeProcess.standardOutput as IDataInput;
             var outputString: String = bytes.readUTFBytes(bytes.bytesAvailable).toString();
-            LOG.info("dataHandler(output):{0}",outputString);
+            LOG.info("standardOutputDataHandler(output):{0}",outputString);
 			//dispatch event
 			this.dispatchEvent(new ImageMagickEvent(ImageMagickEvent.STANDARD_OUTPUT_DATA));
 		}
 		//
 		private function standardOutputCloseHandler(event:Event):void
 		{
-			LOG.info("outputCloseHandler:{0}",event.toString());
+			LOG.info("standardOutputCloseHandler:{0}",event.toString());
 			//dispatch event
 			this.dispatchEvent(new ImageMagickEvent(ImageMagickEvent.STANDARD_OUTPUT_CLOSE));
 			//exit process
@@ -198,10 +199,10 @@ package com.godpaper.as3.ImageMagick
 		//
 		private function standardErrorDataHandler(event:ProgressEvent):void
 		{ 
-			LOG.info("errorDataHandler(event):{0}",event.toString());
+			LOG.info("standardErrorDataHandler(event):{0}",event.toString());
 			var bytes : IDataInput = this._nativeProcess.standardError as IDataInput;
             var outputString: String = bytes.readUTFBytes(bytes.bytesAvailable).toString();
-            LOG.info("errorDataHandler:{0}",outputString);
+//            LOG.info("standardErrorDataHandler:{0}",outputString);
 			//dispatch event
 			this.dispatchEvent(new ImageMagickEvent(ImageMagickEvent.STANDARD_ERROR_DATA));
 		}
@@ -209,7 +210,7 @@ package com.godpaper.as3.ImageMagick
 		//
 		private function standardErrorCloseHandler(event:Event):void
 		{
-			LOG.info("outputCloseHandler:{0}",event.toString());
+			LOG.info("standardErrorCloseHandler:{0}",event.toString());
 			//dispatch event
 			this.dispatchEvent(new ImageMagickEvent(ImageMagickEvent.STANDARD_OUTPUT_ERROR));
 			//exit process
@@ -219,14 +220,14 @@ package com.godpaper.as3.ImageMagick
 		//
 		private function standardInputHandler(event:Event):void
 		{
-			LOG.info("outputCloseHandler:{0}",event.toString());
+			LOG.info("standardInputHandler:{0}",event.toString());
 			//dispatch event
 			this.dispatchEvent(new ImageMagickEvent(ImageMagickEvent.STANDARD_INPUT_PROGRESS));
 		}
 		//
 		private function standardInputProgressHandler(event:Event):void
 		{
-			LOG.info("outputCloseHandler:{0}",event.toString());
+			LOG.info("standardInputProgressHandler:{0}",event.toString());
 			//dispatch event
 			this.dispatchEvent(new ImageMagickEvent(ImageMagickEvent.STANDARD_INPUT_PROGRESS));
 		}

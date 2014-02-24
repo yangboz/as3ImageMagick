@@ -262,13 +262,15 @@ package com.godpaper.as3.ImageMagick
 		//Convert
 		/**
 		 * 
-		 * @param args @see http://www.imagemagick.org/script/convert.php#options
+		 * @param args command arguments string
+		 * @see http://www.imagemagick.org/script/convert.php#options 
+		 * @see http://www.imagemagick.org/script/montage.php
 		 * @return ImageMagickFactsBuilder
 		 * 
 		 */		
-		public function with_convert(args:String):ImageMagickFactsBuilder
+		public function with_command(args:String):ImageMagickFactsBuilder
 		{
-			ImageMagickParameters.resizeOpt = args;
+			ImageMagickParameters.commandOpt = args;
 			return this;
 		}
 		//		-respect-parentheses	settings remain in effect until parenthesis boundary.
@@ -334,18 +336,6 @@ package com.godpaper.as3.ImageMagick
 		//		-white-point point	chromaticity white point
 		//		-white-threshold value	force all pixels above the threshold into white
 		//		-write filename	write images to this file
-		//Montage
-		/**
-		 * 
-		 * @param args @see http://www.imagemagick.org/script/montage.php
-		 * @return ImageMagickFactsBuilder
-		 * 
-		 */		
-		public function with_montage(args:String):ImageMagickFactsBuilder
-		{
-			ImageMagickParameters.resizeOpt = args;
-			return this;
-		}
 		//--------------------------------------------------------------------------
 		//
 		// Protected methods

@@ -82,10 +82,10 @@ package com.godpaper.as3.ImageMagick
 		 * @see http://www.imagemagick.org/script/command-line-processing.php
 		 * @return Concated all of facts to string according to the ImageMagick's cmd line.
 		 */		
-		public function toArguments():Vector.<String>
+		public function toArguments(exeType:String):Vector.<String>
 		{
 			//Delegate to ImageMagickParameters to concate all of facts to string according to the ImageMagick's cmd line
-			return ImageMagickParameters.toArguments();
+			return ImageMagickParameters.toArguments(exeType);
 		}
 		//--------------------------------------------------------------------------
 		//

@@ -227,7 +227,6 @@ package com.godpaper.as3.ImageMagick
 //		-repage geometry	size and location of an image canvas
 //		-resample geometry	change the resolution of an image
 //		-resize geometry	resize the image
-		function with_convert(args:String):ImageMagickFactsBuilder;
 //		-respect-parentheses	settings remain in effect until parenthesis boundary.
 //			-roll geometry	roll an image vertically or horizontally
 //		-rotate degrees	apply Paeth rotation to the image
@@ -291,8 +290,10 @@ package com.godpaper.as3.ImageMagick
 //		-white-point point	chromaticity white point
 //		-white-threshold value	force all pixels above the threshold into white
 //		-write filename	write images to this file
+//		function with_convert(args:String):ImageMagickFactsBuilder;
+//		function with_montage(args:String):ImageMagickFactsBuilder;
 //Montage
 //http://www.imagemagick.org/script/montage.php		
-		function with_montage(args:String):ImageMagickFactsBuilder;
+		function with_command(args:String):ImageMagickFactsBuilder;
 	}
 }
